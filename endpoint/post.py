@@ -3,17 +3,17 @@ from typing import List
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from ..core.db import get_db
-from ..core.models import Users
-from ..schema.schema import PostResponse, PostBase
-from ..internal.posts import (
+from core.db import get_db
+from core.models import Users
+from schema.schema import PostResponse, PostBase
+from internal.posts import (
     get_all_posts,
     get_post_by_id,
     create_post,
     update_post,
     delete_post,
 )
-from ..internal.user import get_current_active_user
+from internal.user import get_current_active_user
 
 
 post_router = APIRouter()

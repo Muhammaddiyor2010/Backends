@@ -1,10 +1,10 @@
-from fastapi import FastAPI, Request,status
+from fastapi import FastAPI, Request, status
 import time
 from fastapi.responses import JSONResponse
-from .endpoint.user import user_router
-from .endpoint.post import post_router
-from .core.db import get_db, create_tables
-from .core.models import Users, Post, Comment  # Import models to register them
+from endpoint.user import user_router
+from endpoint.post import post_router
+from core.db import get_db, create_tables
+from core.models import Users, Post, Comment  # Import models to register them
 from datetime import datetime
 import logging
 from collections import defaultdict

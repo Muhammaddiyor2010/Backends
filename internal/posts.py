@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from ..core.models import Post
-from ..schema.schema import PostBase
+from core.models import Post
+from schema.schema import PostBase
 
 
 def get_all_posts(db: Session):

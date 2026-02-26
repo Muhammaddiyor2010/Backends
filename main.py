@@ -66,21 +66,3 @@ def read_root():
 
 
 request_log = defaultdict(list)
-
-@app.middleware("http")
-async def rate_limit(request: Request, call_next):
-    ip = request.client.host
-    now = time.time()
-
-    request_log[ip] = [t for t in request_log[ip] if now - t < 60]
-
-    if len(request_log[ip]) >= 10:
-        return JSONResponse(status_code=429, content={"detail": "Rate limit"})
-
-    request_log[ip].append(now)
-    return await call_next(request)
-
-if __name__ == "__main__":
-	import uvicorn
-
-	uvicorn.run(app, host="127.0.0.1", port=8000, log_level="info")

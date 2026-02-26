@@ -65,4 +65,4 @@ def read_root():
 #         return response
 
 
-request_log = defaultdict(list)
+
